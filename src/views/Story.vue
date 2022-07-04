@@ -1,7 +1,10 @@
 <template>
   <div class="container py-5">
     <NavTabs />
-    <h1 class="mt-5">故事流程</h1>
+    <div class="mt-5 d-flex align-items-center justify-content-between">
+      <h1>故事流程</h1>
+      <router-link to="/story/new" class="btn btn-success btn-lg">新增故事</router-link>
+    </div>
     <hr>
     <select class="custom-select" v-model="storySelected" @change.stop.prevent="handleSelected(storySelected)">
       <option value="" selected disabled>請選擇</option>
