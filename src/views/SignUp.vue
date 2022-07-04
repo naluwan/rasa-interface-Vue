@@ -8,7 +8,7 @@
       </div>
 
       <div class="form-label-group mb-2">
-        <label for="name">公司代號或統編</label>
+        <label for="cpnyId">公司代號或統編</label>
         <input
           id="cpnyId"
           name="cpnyId"
@@ -23,7 +23,7 @@
       </div>
 
       <div class="form-label-group mb-2">
-        <label for="name">公司名稱</label>
+        <label for="cpnyName">公司名稱</label>
         <input
           id="cpnyName"
           name="cpnyName"
