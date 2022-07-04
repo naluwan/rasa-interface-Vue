@@ -17,6 +17,16 @@ const routes = [
     component: () => import('../views/SignUp.vue')
   },
   {
+    path: '/story',
+    name: 'story',
+    component: () => import('../views/Story.vue')
+  },
+  {
+    path: '/config',
+    name: 'rasa-config',
+    component: () => import('../views/RasaConfig.vue')
+  },
+  {
     path: '*',
     name: 'not-found',
     component: NotFound
@@ -24,6 +34,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  linkExactActiveClass: 'active',
   routes
 })
 
