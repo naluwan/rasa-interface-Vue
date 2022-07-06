@@ -20,6 +20,7 @@ import NavTabs from "../components/NavTabs.vue";
 import Stories from '../components/Stories.vue'
 import { v4 as uuidv4 } from 'uuid'
 
+// 假資料
 const dummyData = {
   stories: [
     {
@@ -294,6 +295,7 @@ export default {
   },
   methods: {
     fetchStories(){
+      // TODO: 待串接API，從後端獲取正確故事資料
       this.stories = dummyData.stories
     },
     handleSelected(storyId){

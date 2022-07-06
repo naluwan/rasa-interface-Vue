@@ -2,12 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import NotFound from '../views/NotFound.vue'
 import SignIn from '../views/SignIn.vue'
+import Story from '../views/Story.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: "/",
+    name: 'root',
     redirect: '/story'
   },
   {
@@ -23,7 +25,13 @@ const routes = [
   {
     path: '/story',
     name: 'story',
-    component: () => import('../views/Story.vue')
+    component: Story
+
+  },
+  {
+    path: '/story/new',
+    name: 'new-story',
+    component: () => import('../views/NewStory.vue')
   },
   {
     path: '/config',
