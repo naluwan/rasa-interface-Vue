@@ -4,18 +4,18 @@
       v-for="(input, index) in stepsData"
       :key="`step-${index}`"
       :class="{
-        'col d-flex justify-content-start': input.user,
-        'col d-flex justify-content-end': input.action,
+        'col d-flex justify-content-start': input.user || input.intent,
+        'col d-flex justify-content-end': input.action || input.response,
       }"
     >
       <div
         :class="{
-          'userStepContainer col-md-6': input.user,
-          'botStepContainer col-md-6': input.action,
+          'userStepContainer col-md-6': input.user || input.intent,
+          'botStepContainer col-md-6': input.action || input.response,
         }"
       >
         <!-- user -->
-        <template v-if="input.user">
+        <template v-if="input.user || input.intent">
           <h1 class="h4 mb-3 font-weight-normal">使用者:</h1>
           <div class="form-label-group mb-2">
             <label for="user">對話</label>
@@ -49,14 +49,10 @@
               :disabled="index !== editIndex"
             ></textarea>
           </div>
-          <!-- <div class="stepActionBtns mt-3 d-flex justify-content-end">
-            <button class="btn btn-primary">編輯</button>
-            <button class="btn btn-danger">刪除</button>
-          </div> -->
         </template>
 
         <!-- bot -->
-        <template v-if="input.action">
+        <template v-if="input.action || input.response">
           <h1 class="h4 mb-3 font-weight-normal">機器人:</h1>
           <div class="form-label-group mb-2">
             <label for="botReply">回覆</label>
@@ -86,7 +82,7 @@
           />
           </div>
         </template>
-        <div class="stepActionBtns mt-3 d-flex justify-content-end">
+        <div v-if="input.user  || input.intent || input.action || input.response" class="stepActionBtns mt-3 d-flex justify-content-end">
             <button v-if="index !== editIndex" class="btn btn-primary" @click.stop.prevent="editBtnClick(index)">編輯</button>
             <button v-else class="btn btn-secondary">儲存</button>
             <button class="btn btn-danger">刪除</button>
@@ -115,6 +111,6 @@ export default {
     editBtnClick(index){
       this.editIndex = index
     }
-  }
+  },
 };
 </script>
