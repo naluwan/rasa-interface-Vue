@@ -279,7 +279,6 @@ dummyData.stories.map(story => {
   })
 })
 
-
 export default {
   name: "Story",
   components: {
