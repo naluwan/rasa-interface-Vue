@@ -42,19 +42,23 @@
 </template>
 
 <script>
+import {getStepsIndexUtils} from '../utils/mixins'
+
 export default {
   name: "AddUserStep",
   props: {
-    stepIndex: {
+    stepsIndex: {
       type: Number,
       required: true,
     },
   },
+  mixins: [getStepsIndexUtils],
   data() {
     return {
       user: "",
       intent: "",
       entities: [],
+      index: -1
     };
   },
   methods: {
@@ -65,7 +69,7 @@ export default {
         user: this.user,
         intent: this.intent,
         entities: this.entities,
-        stepIndex: this.stepIndex,
+        stepsIndex: this.index,
       });
     },
   },

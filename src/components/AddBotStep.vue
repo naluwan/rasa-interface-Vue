@@ -39,19 +39,22 @@
 
 <script>
 import {v4 as uuidv4} from 'uuid'
+import {getStepsIndexUtils} from '../utils/mixins'
 
 export default {
   name: 'AddBotStep',
   props: {
-    stepIndex: {
+    stepsIndex: {
       type: Number,
       required: true
     }
   },
+  mixins: [getStepsIndexUtils],
   data(){
     return {
       response: '',
-      action: `utter_${uuidv4()}`
+      action: `utter_${uuidv4()}`,
+      index: -1
     }
   },
   methods: {
@@ -61,7 +64,7 @@ export default {
       this.$emit("after-create-botStep", {
         response: this.response,
         action: this.action,
-        stepIndex: this.stepIndex,
+        stepsIndex: this.index,
       });
     }
   }
